@@ -21,7 +21,7 @@ export default function About() {
           <div className="reveal">
             <span className="section-label">강사 소개 · Instructor</span>
             <h2 className="instructor-name-en">김선경</h2>
-            <p className="instructor-name-kr">Kim Sung-Kyung</p>
+            <p className="instructor-name-kr">Kim Sun-Kyung</p>
             <div className="gold-divider" />
             <p className="about-bio">
               12년 이상의 댄스 피트니스 및 필라테스 지도 경력을 가진 김선경 강사는 매 수업마다
@@ -30,7 +30,7 @@ export default function About() {
               특화되어 있습니다 — 모든 체력 수준의 분들이 즐겁고 건강한 변화를 경험하실 수 있습니다.
             </p>
             <p className="about-bio" style={{ fontSize: '0.85rem', opacity: 0.7, marginTop: '-1rem' }}>
-              With over 12 years of experience, Kim Sung-Kyung brings expertise and warmth to every class —
+              With over 12 years of experience, Kim Sun-Kyung brings expertise and warmth to every class —
               certified in Zumba, ACE Group Fitness, and Balanced Body Pilates.
             </p>
             <div className="stats-row">
