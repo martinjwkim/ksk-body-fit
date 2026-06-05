@@ -13,7 +13,7 @@ export default function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault()
     if (!form.name || !form.phone || !form.email) {
-      setError('Please fill in your name, phone number, and email.')
+      setError('이름, 전화번호, 이메일을 입력해 주세요. / Please fill in your name, phone, and email.')
       return
     }
     setError('')
@@ -26,9 +26,9 @@ export default function Contact() {
         <div className="contact-grid">
 
           <div className="reveal">
-            <span className="section-label">Get In Touch</span>
+            <span className="section-label">문의하기 · Contact</span>
             <h2 className="section-title" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.4rem)' }}>
-              Send Us a Message
+              문의하기
             </h2>
             <div className="gold-divider" />
             <a href="tel:7143510936" className="contact-phone">714-351-0936</a>
@@ -53,27 +53,27 @@ export default function Contact() {
             {submitted ? (
               <div className="form-success">
                 <div className="form-success-icon"><CheckIcon /></div>
-                <h3>Thank you! / 감사합니다!</h3>
+                <h3>감사합니다! / Thank you!</h3>
                 <p>
-                  We'll be in touch soon. For immediate assistance, call{' '}
-                  <a href="tel:7143510936">714-351-0936</a>.
+                  곧 연락드리겠습니다. 빠른 상담은{' '}
+                  <a href="tel:7143510936">714-351-0936</a>으로 전화해 주세요.
                 </p>
               </div>
             ) : (
               <form className="contact-form" onSubmit={handleSubmit} noValidate>
                 <div className="form-grid">
                   <div className="form-field">
-                    <label className="form-label" htmlFor="name">Name / 이름</label>
+                    <label className="form-label" htmlFor="name">이름 / Name</label>
                     <input
                       id="name"
                       className="form-input"
-                      placeholder="Your name"
+                      placeholder="성함을 입력하세요"
                       value={form.name}
                       onChange={set('name')}
                     />
                   </div>
                   <div className="form-field">
-                    <label className="form-label" htmlFor="phone">Phone / 전화번호</label>
+                    <label className="form-label" htmlFor="phone">전화번호 / Phone</label>
                     <input
                       id="phone"
                       type="tel"
@@ -84,7 +84,7 @@ export default function Contact() {
                     />
                   </div>
                   <div className="form-field full">
-                    <label className="form-label" htmlFor="email">Email / 이메일</label>
+                    <label className="form-label" htmlFor="email">이메일 / Email</label>
                     <input
                       id="email"
                       type="email"
@@ -95,25 +95,25 @@ export default function Contact() {
                     />
                   </div>
                   <div className="form-field full">
-                    <label className="form-label" htmlFor="preferredClass">Preferred Class / 관심 수업</label>
+                    <label className="form-label" htmlFor="preferredClass">관심 수업 / Preferred Class</label>
                     <select
                       id="preferredClass"
                       className="form-input"
                       value={form.preferredClass}
                       onChange={set('preferredClass')}
                     >
-                      <option value="">Select a class / 수업을 선택하세요</option>
-                      <option value="dance">Diet Dance &amp; Zumba / 다이어트 댄스 &amp; 줌바</option>
-                      <option value="pilates">Props Pilates / 소도구 필라테스</option>
-                      <option value="both">Both / 모두</option>
+                      <option value="">수업을 선택하세요 / Select a class</option>
+                      <option value="dance">다이어트 댄스 &amp; 줌바 / Diet Dance &amp; Zumba</option>
+                      <option value="pilates">소도구 필라테스 / Props Pilates</option>
+                      <option value="both">모두 / Both</option>
                     </select>
                   </div>
                   <div className="form-field full">
-                    <label className="form-label" htmlFor="message">Message / 문의 내용</label>
+                    <label className="form-label" htmlFor="message">문의 내용 / Message</label>
                     <textarea
                       id="message"
                       className="form-input"
-                      placeholder="Tell us about yourself or ask us anything"
+                      placeholder="궁금하신 점이나 문의 내용을 자유롭게 작성해 주세요"
                       rows={5}
                       value={form.message}
                       onChange={set('message')}
@@ -123,7 +123,7 @@ export default function Contact() {
                 {error && <p className="form-error">{error}</p>}
                 <button type="submit" className="form-submit">
                   <SendIcon />
-                  Send Inquiry / 문의하기
+                  문의하기 / Send Inquiry
                 </button>
               </form>
             )}

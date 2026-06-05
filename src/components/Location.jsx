@@ -5,9 +5,9 @@ export default function Location() {
         <div className="location-grid">
 
           <div className="reveal">
-            <span className="section-label">Find Us</span>
+            <span className="section-label">오시는 길 · Location</span>
             <h2 className="section-title" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.4rem)' }}>
-              Location / 위치
+              오시는 길 / Location
             </h2>
             <div className="gold-divider" />
             <p className="location-address">
@@ -18,14 +18,14 @@ export default function Location() {
             <div className="location-landmark">
               <InfoIcon />
               <span>
-                Inside H-Mart Mall, next to E Plex<br />
-                (H-Mart 몰 E Plex 옆)
+                H-Mart 몰 E Plex 옆, Fred Astaire Dance Studio 내<br />
+                Inside Fred Astaire Dance Studio, H-Mart Mall next to E Plex
               </span>
             </div>
             <div className="location-hours">
-              <strong>Class Hours:</strong><br />
-              Mon – Fri: 9:00 AM – 11:00 AM<br />
-              Sat – Sun: Closed
+              <strong>수업 시간:</strong><br />
+              월~금: 오전 9:00 – 11:00<br />
+              토~일: 휴무
             </div>
           </div>
 
@@ -35,7 +35,7 @@ export default function Location() {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Fred Astaire Dance Studio location map"
+              title="Fred Astaire Dance Studio 위치 — 김선경 Body Fit"
             />
           </div>
 

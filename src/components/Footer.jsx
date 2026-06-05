@@ -12,23 +12,17 @@ export default function Footer() {
       <div className="container">
         <div className="footer-inner">
           <div>
-            <div className="footer-brand-main">Fred Astaire Dance Studio</div>
-            <div className="footer-brand-sub">김선경 Body Fit</div>
+            <div className="footer-brand-main">김선경 Body Fit</div>
+            <div className="footer-brand-sub">Fred Astaire Dance Studio</div>
           </div>
 
-          <nav className="footer-links">
-            {NAV.map(([href, label]) => (
-              <a key={href} href={href}>{label}</a>
-            ))}
-          </nav>
-
-          <div className="footer-right">
+<div className="footer-right">
             2753 S. Diamond Bar Blvd. Suite A<br />
             Diamond Bar, CA 91765<br />
             <a href="tel:7143510936">714-351-0936</a>
             <br />
             <span style={{ fontSize: '0.7rem', opacity: 0.6 }}>
-              © 2024 Fred Astaire Dance Studio. All rights reserved.
+              © 2024 김선경 Body Fit. All rights reserved.
             </span>
           </div>
         </div>

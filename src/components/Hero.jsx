@@ -10,12 +10,11 @@ export default function Hero() {
         <h1 className="hero-title">
           김선경<br /><em>Body Fit</em>
         </h1>
-        <p className="hero-subbrand">Kim Sun-kyung Body Fit</p>
-        <p className="hero-tagline-en">Start your healthy transformation today</p>
         <p className="hero-tagline-kr">지금 상담하시고 건강한 변화를 시작하세요</p>
+        <p className="hero-tagline-en">Start your healthy transformation today</p>
         <a href="tel:7143510936" className="hero-cta">
           <PhoneIcon />
-          Call Now: 714-351-0936
+          전화 상담: 714-351-0936
         </a>
       </div>
     </section>
