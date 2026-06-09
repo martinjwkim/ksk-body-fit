@@ -40,7 +40,7 @@ export default function About() {
               자격증을 보유하고 있으며, 역동적인 움직임과 효과적인 바디 컨디셔닝을 결합하는 데
               특화되어 있습니다 — 모든 체력 수준의 분들이 즐겁고 건강한 변화를 경험하실 수 있습니다.
             </p>
-            <p className="about-bio" style={{ fontSize: '0.85rem', opacity: 0.7, marginTop: '-1rem' }}>
+            <p className="about-bio" style={{ fontSize: '0.92rem', opacity: 0.82, marginTop: '-1rem' }}>
               With over {yearsOfExperience} years of experience, Kim Seon-Kyoung brings expertise and warmth to every class —
               certified in ACE Group Fitness, Zumba, and Mat Pilates.
             </p>
