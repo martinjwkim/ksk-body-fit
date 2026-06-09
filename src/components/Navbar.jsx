@@ -29,7 +29,6 @@ export default function Navbar() {
     <nav className={`navbar${scrolled ? ' scrolled' : ''}`}>
       <div className="nav-brand">
         <span className="nav-brand-main">김선경 Body Fit</span>
-        <span className="nav-brand-sub">Fred Astaire Dance Studio</span>
       </div>
 
       <ul className="nav-links">

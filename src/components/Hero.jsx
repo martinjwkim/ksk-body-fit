@@ -6,7 +6,6 @@ export default function Hero() {
       <div className="hero-hex" />
 
       <div className="hero-content">
-        <p className="hero-eyebrow">Fred Astaire Dance Studio — Diamond Bar, CA</p>
         <h1 className="hero-title">
           김선경<br /><em>Body Fit</em>
         </h1>

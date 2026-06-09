@@ -338,6 +338,12 @@ section { padding: 6rem 0; }
   justify-content: center;
   overflow: hidden;
 }
+.instructor-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
 .certs { display: flex; flex-direction: column; gap: 0.5rem; width: 100%; }
 .cert-badge {
   background: var(--gold-glow);
@@ -478,63 +484,128 @@ section { padding: 6rem 0; }
 .legend-dot { width: 14px; height: 2px; }
 
 /* ===== PRICING ===== */
-.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-.pricing-card {
-  background: var(--navy-mid);
+.pricing-table-wrap { max-width: 880px; margin: 0 auto; }
+.pricing-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--navy-card);
   border: 1px solid var(--navy-border);
-  padding: 2.5rem 2rem;
-  text-align: center;
-  position: relative;
-  transition: all var(--t);
+  overflow: hidden;
 }
-.pricing-card.featured { border-color: var(--gold); background: var(--navy-card); }
-.pricing-card.featured::before {
-  content: 'MOST POPULAR';
-  position: absolute;
-  top: -1px; left: 50%;
-  transform: translateX(-50%);
+.pricing-table th,
+.pricing-table td {
+  padding: 1.4rem 1.5rem;
+  border-bottom: 1px solid var(--navy-border);
+  border-right: 1px solid var(--navy-border);
+  text-align: center;
+  vertical-align: middle;
+}
+.pricing-table thead th {
   background: var(--gold);
   color: var(--navy);
-  font-size: 0.62rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  padding: 0.28rem 1rem;
-  white-space: nowrap;
-}
-.pricing-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,0.10); }
-.pricing-type {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.pricing-table thead th span {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.78;
+  margin-top: 0.15rem;
+}
+.pricing-table .pt-corner { background: var(--gold); }
+.pricing-table tr:last-child th,
+.pricing-table tr:last-child td { border-bottom: none; }
+.pricing-table th:last-child,
+.pricing-table td:last-child { border-right: none; }
+
+.pt-row-label {
+  text-align: left;
+  background: var(--navy-mid);
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--cream);
-  margin-bottom: 0.75rem;
+  white-space: nowrap;
 }
-.pricing-desc { font-size: 0.84rem; color: var(--muted); margin-bottom: 1.5rem; line-height: 1.7; }
-.pricing-amount {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.1rem;
-  color: var(--gold);
-  font-style: italic;
-  margin-bottom: 1.5rem;
-}
-.pricing-cta {
+.pt-row-label span {
   display: block;
+  font-size: 0.74rem;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  margin-top: 0.15rem;
+}
+.pt-sub {
+  font-size: 0.66rem !important;
+  font-style: italic;
+  margin: 0.35rem auto 0 !important; /* center the max-width box under the other label lines */
+  max-width: 13rem;
+  white-space: normal;
+  line-height: 1.4;
+  opacity: 0.85;
+}
+.pt-price {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--cream);
+  line-height: 1.1;
+}
+.pt-note {
+  display: block;
+  min-height: 1.05em; /* reserve space so prices without a note still align with those that have one */
+  font-size: 0.74rem;
+  color: var(--muted);
+  font-style: italic;
+  margin-top: 0.3rem;
+}
+.pricing-table .pt-featured td { background: var(--gold-glow); }
+.pricing-table .pt-featured .pt-price { color: var(--gold); }
+.pricing-table .pt-onetime td { background: var(--navy-mid); }
+.pricing-table .pt-onetime .pt-price { display: inline-block; margin-right: 0.6rem; }
+.pricing-table .pt-onetime .pt-note { display: inline-block; }
+
+.pricing-footnote {
+  text-align: right;
+  font-size: 0.76rem;
+  color: var(--muted);
+  font-style: italic;
+  margin-top: 1rem;
+}
+.pricing-cta-row {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+.pricing-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gold);
+  color: var(--navy);
+  text-decoration: none;
+  padding: 0.85rem 2rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  transition: background var(--t), transform var(--t), box-shadow var(--t);
+}
+.pricing-cta-btn:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(224,72,72,0.28); }
+.pricing-cta-btn.ghost {
   background: transparent;
   border: 1px solid var(--gold);
   color: var(--gold);
-  text-decoration: none;
-  padding: 0.72rem 1.5rem;
-  font-size: 0.8rem;
-  letter-spacing: 0.1em;
-  font-weight: 600;
-  transition: all var(--t);
-  width: 100%;
-  cursor: pointer;
-  font-family: inherit;
 }
-.pricing-cta:hover { background: var(--gold); color: var(--navy); }
-.pricing-card.featured .pricing-cta { background: var(--gold); color: var(--navy); }
-.pricing-card.featured .pricing-cta:hover { background: var(--gold-light); }
+.pricing-cta-btn.ghost:hover { background: var(--gold); color: var(--navy); box-shadow: none; }
 
 /* ===== CONTACT ===== */
 .contact-section { background: var(--navy-mid); }
@@ -677,7 +748,6 @@ footer { background: var(--navy); border-top: 1px solid var(--navy-border); padd
   .location-grid { grid-template-columns: 1fr; gap: 3rem; }
   .about-visual { flex-direction: row; flex-wrap: wrap; justify-content: center; }
   .classes-grid { grid-template-columns: 1fr; }
-  .pricing-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
   .footer-inner { flex-direction: column; text-align: center; }
   .footer-right { text-align: center; }
 }
@@ -690,4 +760,11 @@ footer { background: var(--navy); border-top: 1px solid var(--navy-border); padd
   .form-grid { grid-template-columns: 1fr; }
   .stats-row { gap: 1.5rem; }
   .hero-title { font-size: 3rem; }
+  .pricing-table th,
+  .pricing-table td { padding: 1rem 0.85rem; }
+  .pricing-table thead th { font-size: 1.05rem; }
+  .pt-row-label { font-size: 0.86rem; white-space: normal; }
+  .pt-price { font-size: 1.5rem; }
+  .pt-combo-sub { display: none; }
+  .pricing-cta-row { flex-direction: column; align-items: stretch; }
 }

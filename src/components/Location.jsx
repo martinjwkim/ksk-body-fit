@@ -18,13 +18,14 @@ export default function Location() {
             <div className="location-landmark">
               <InfoIcon />
               <span>
-                H-Mart 몰 E Plex 옆, Fred Astaire Dance Studio 내<br />
-                Inside Fred Astaire Dance Studio, H-Mart Mall next to E Plex
+                H-Mart 몰 내 Fred Astaire Dance Studio · E Plex 옆<br />
+                Inside Fred Astaire Dance Studio — H-Mart Mall, next to E Plex
               </span>
             </div>
             <div className="location-hours">
-              <strong>수업 시간:</strong><br />
-              월~금: 오전 9:00 – 11:00<br />
+              <strong>수업 시간 (월~금):</strong><br />
+              다이어트 댄스 &amp; 줌바: 오전 9:00 – 10:00<br />
+              소도구 필라테스: 오전 10:10 – 11:00<br />
               토~일: 휴무
             </div>
           </div>

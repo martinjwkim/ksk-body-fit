@@ -1,3 +1,15 @@
+import { useState } from 'react'
+
+// Instructor began teaching in 2004 — keeps "years of experience" current automatically.
+const CAREER_START_YEAR = 2004
+const yearsOfExperience = new Date().getFullYear() - CAREER_START_YEAR
+
+const CERTIFICATIONS = [
+  'ACE Certified Group Fitness Instructor',
+  'Certified Zumba Instructor',
+  'Certified Mat Pilates Instructor',
+]
+
 export default function About() {
   return (
     <section id="about" className="about-section">
@@ -7,34 +19,33 @@ export default function About() {
           <div className="about-visual reveal">
             <div className="avatar-ring">
               <div className="avatar-inner">
-                <AvatarSVG />
+                <InstructorPhoto />
               </div>
             </div>
             <div className="certs">
-              {/* Update certifications when official credentials are provided */}
-              <div className="cert-badge">ZIN — Zumba Instructor Network</div>
-              <div className="cert-badge">ACE Certified Group Fitness</div>
-              <div className="cert-badge">Balanced Body Pilates</div>
+              {CERTIFICATIONS.map((cert) => (
+                <div key={cert} className="cert-badge">{cert}</div>
+              ))}
             </div>
           </div>
 
           <div className="reveal">
             <span className="section-label">강사 소개 · Instructor</span>
             <h2 className="instructor-name-en">김선경</h2>
-            <p className="instructor-name-kr">Kim Sun-Kyung</p>
+            <p className="instructor-name-kr">Kim Seon-Kyoung</p>
             <div className="gold-divider" />
             <p className="about-bio">
-              12년 이상의 댄스 피트니스 및 필라테스 지도 경력을 가진 김선경 강사는 매 수업마다
-              전문성과 열정, 따뜻함을 담아냅니다. 줌바, ACE 그룹 피트니스, Balanced Body 필라테스
+              {yearsOfExperience}년 이상의 댄스 피트니스 및 필라테스 지도 경력을 가진 김선경 강사는 매 수업마다
+              전문성과 열정, 따뜻함을 담아냅니다. ACE 그룹 피트니스, 줌바, 매트 필라테스
               자격증을 보유하고 있으며, 역동적인 움직임과 효과적인 바디 컨디셔닝을 결합하는 데
               특화되어 있습니다 — 모든 체력 수준의 분들이 즐겁고 건강한 변화를 경험하실 수 있습니다.
             </p>
             <p className="about-bio" style={{ fontSize: '0.85rem', opacity: 0.7, marginTop: '-1rem' }}>
-              With over 12 years of experience, Kim Sun-Kyung brings expertise and warmth to every class —
-              certified in Zumba, ACE Group Fitness, and Balanced Body Pilates.
+              With over {yearsOfExperience} years of experience, Kim Seon-Kyoung brings expertise and warmth to every class —
+              certified in ACE Group Fitness, Zumba, and Mat Pilates.
             </p>
             <div className="stats-row">
-              {[['12+', 'Years Experience'], ['3', 'Certifications'], ['5×', 'Weekly Classes']].map(
+              {[[`${yearsOfExperience}`, 'Years Experience'], ['3', 'Certifications'], ['5×', 'Weekly Classes']].map(
                 ([num, label]) => (
                   <div key={label}>
                     <div className="stat-number">{num}</div>
@@ -48,6 +59,20 @@ export default function About() {
         </div>
       </div>
     </section>
+  )
+}
+
+// Real portrait when available (public/instructor.jpg); falls back to the lettermark avatar.
+function InstructorPhoto() {
+  const [failed, setFailed] = useState(false)
+  if (failed) return <AvatarSVG />
+  return (
+    <img
+      src="/instructor.jpg"
+      alt="Kim Seon-Kyoung, instructor"
+      className="instructor-photo"
+      onError={() => setFailed(true)}
+    />
   )
 }
 

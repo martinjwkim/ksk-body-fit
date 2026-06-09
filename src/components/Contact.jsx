@@ -1,6 +1,7 @@
 import { useState } from 'react'
 
 const INITIAL = { name: '', phone: '', email: '', preferredClass: '', message: '' }
+const STUDIO_EMAIL = 'sunnykim64@yahoo.com'
 
 export default function Contact() {
   const [form, setForm] = useState(INITIAL)
@@ -17,6 +18,25 @@ export default function Contact() {
       return
     }
     setError('')
+
+    // Route the inquiry to the studio inbox via the visitor's email client.
+    const classLabels = {
+      dance: 'Diet Dance & Zumba',
+      pilates: 'Props Pilates',
+      both: 'Both',
+    }
+    const subject = `수업 문의 / Class Inquiry — ${form.name}`
+    const body = [
+      `이름 / Name: ${form.name}`,
+      `전화 / Phone: ${form.phone}`,
+      `이메일 / Email: ${form.email}`,
+      `관심 수업 / Preferred Class: ${classLabels[form.preferredClass] || '—'}`,
+      '',
+      `문의 내용 / Message:`,
+      form.message || '—',
+    ].join('\n')
+    window.location.href = `mailto:${STUDIO_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+
     setSubmitted(true)
   }
 
@@ -31,7 +51,6 @@ export default function Contact() {
               문의하기
             </h2>
             <div className="gold-divider" />
-            <a href="tel:7143510936" className="contact-phone">714-351-0936</a>
             <div className="contact-detail">
               <PinIcon />
               <span>
@@ -43,10 +62,10 @@ export default function Contact() {
               <PhoneIcon />
               <a href="tel:7143510936">714-351-0936</a>
             </div>
-            <p className="contact-note">
-              지금 상담하시고 건강한 변화를 시작하세요.<br />
-              Reach out today to start your healthy transformation.
-            </p>
+            <div className="contact-detail">
+              <MailIcon />
+              <a href={`mailto:${STUDIO_EMAIL}`}>{STUDIO_EMAIL}</a>
+            </div>
           </div>
 
           <div className="reveal">
@@ -55,8 +74,9 @@ export default function Contact() {
                 <div className="form-success-icon"><CheckIcon /></div>
                 <h3>감사합니다! / Thank you!</h3>
                 <p>
-                  곧 연락드리겠습니다. 빠른 상담은{' '}
-                  <a href="tel:7143510936">714-351-0936</a>으로 전화해 주세요.
+                  이메일 앱이 열렸습니다 — 전송 버튼을 눌러 문의를 보내주세요. 빠른 상담은{' '}
+                  <a href="tel:7143510936">714-351-0936</a> 또는{' '}
+                  <a href={`mailto:${STUDIO_EMAIL}`}>{STUDIO_EMAIL}</a>.
                 </p>
               </div>
             ) : (
@@ -148,6 +168,15 @@ function PhoneIcon() {
   return (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.48 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.81a16 16 0 0 0 6.07 6.07l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+    </svg>
+  )
+}
+
+function MailIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="2" y="4" width="20" height="16" rx="2" />
+      <path d="m22 7-10 6L2 7" />
     </svg>
   )
 }
